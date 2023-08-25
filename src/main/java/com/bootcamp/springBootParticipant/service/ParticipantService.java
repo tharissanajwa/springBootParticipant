@@ -92,7 +92,7 @@ public class ParticipantService {
         } else if (phoneNumber.isEmpty()) {
             throw new IllegalArgumentException("Sorry, phone number cannot be empty.");
         } else if (!phoneNumber.matches("^[0-9+]{10,15}$")) {
-            throw new IllegalArgumentException("Sorry, phone number must be 10 - 15 digits.");
+            throw new IllegalArgumentException("Sorry, phone number must be 10 - 13 digits.");
         }
 
         return phoneNumberValidation;
