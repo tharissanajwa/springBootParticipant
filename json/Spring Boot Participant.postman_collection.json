@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "d9e3a4f4-022c-44c2-9b2f-7ee17bd72c4f",
+		"name": "Spring Boot Participant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23096926"
+	},
+	"item": [
+		{
+			"name": "Get All Participant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/participant",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"participant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Participant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"Kayla Alzena\",\n        \"address\": \"   Bali   \",\n        \"phoneNumber\": \"   +6285321868782   \",\n        \"status\": \"active\",\n        \"deleted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/participant",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"participant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Participant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/participant/Kayla Alzena",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"participant",
+						"Kayla Alzena"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Participant",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Putri Budiman\",\n    \"address\": \"Bandung\",\n    \"phoneNumber\": \"+6282126867931\",\n    \"status\": \"active\",\n    \"deleted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/participant/Putri Budiman",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"participant",
+						"Putri Budiman"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
