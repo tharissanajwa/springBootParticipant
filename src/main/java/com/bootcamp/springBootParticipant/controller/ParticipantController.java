@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/participant")
+@RequestMapping("/participants")
 // Kelas ini bertindak sebagai controller untuk mengatur permintaan terkait peserta.
 public class ParticipantController {
 
@@ -30,7 +30,7 @@ public class ParticipantController {
     // Membuat peserta baru.
     private ResponseEntity createNewParticipant(@RequestBody Participant participants) {
         try {
-            List<Participant> participantList = participantService.addParticipant(participantService.getParticipantData(), participants.getName(), participants.getAddress(), participants.getPhoneNumber(), "active");
+            List<Participant> participantList = participantService.addParticipant(participantService.getParticipantData(), participants.getName(), participants.getAddress(), participants.getPhoneNumber());
             return ResponseEntity.status(HttpStatus.CREATED).body(participantList);
         } catch (IllegalArgumentException error) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid input : " + error.getMessage());

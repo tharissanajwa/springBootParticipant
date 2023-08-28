@@ -12,13 +12,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/participant",
+					"raw": "localhost:8080/participants",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"participant"
+						"participants"
 					]
 				}
 			},
@@ -31,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"name\": \"Kayla Alzena\",\n        \"address\": \"   Bali   \",\n        \"phoneNumber\": \"   +6285321868782   \",\n        \"status\": \"active\",\n        \"deleted\": false\n}",
+					"raw": "{\n        \"name\": \"Andi\",\n        \"address\": \"   Bali   \",\n        \"phoneNumber\": \"  +62abcd  \",\n        \"status\": \"active\",\n        \"deleted\": false\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,13 +39,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/participant",
+					"raw": "localhost:8080/participants",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"participant"
+						"participants"
 					]
 				}
 			},
@@ -57,14 +57,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/participant/Kayla Alzena",
+					"raw": "localhost:8080/participants/Andi",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"participant",
-						"Kayla Alzena"
+						"participants",
+						"Andi"
 					]
 				}
 			},
@@ -77,7 +77,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Putri Budiman\",\n    \"address\": \"Bandung\",\n    \"phoneNumber\": \"+6282126867931\",\n    \"status\": \"active\",\n    \"deleted\": false\n}",
+					"raw": "{\n    \"name\": \"Putri Budiman\",\n    \"address\": \"Bandung\",\n    \"phoneNumber\": \"+6282126867931\",\n    \"status\": true,\n    \"deleted\": false\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -85,13 +85,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/participant/Putri Budiman",
+					"raw": "localhost:8080/participants/Putri Budiman",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"participant",
+						"participants",
 						"Putri Budiman"
 					]
 				}

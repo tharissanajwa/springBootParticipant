@@ -24,20 +24,15 @@ public class ParticipantService {
     }
 
     // Menambahkan peserta baru ke dalam daftar peserta.
-    public List<Participant> addParticipant(List<Participant> participant, String name, String address, String phoneNumber, String status) {
-        // Menghilangkan spasi ekstra dari nama, alamat, dan nomor telepon.
-        String nameTrim = nameTrim(name);
-        String addressTrim = addressTrim(address);
-        String phoneNumberTrim = phoneNumberTrim(phoneNumber);
-
+    public List<Participant> addParticipant(List<Participant> participant, String name, String address, String phoneNumber) {
         // Melakukan validasi terhadap nama, alamat, dan nomor telepon.
-        boolean nameValidation = nameValidation(nameTrim);
-        boolean addressValidation = addressValidation(addressTrim);
-        boolean phoneNumberValidation = phoneNumberValidation(phoneNumberTrim);
+        boolean nameValidation = nameValidation(inputTrim(name));
+        boolean addressValidation = addressValidation(inputTrim(address));
+        boolean phoneNumberValidation = phoneNumberValidation(phoneNumberTrim(phoneNumber));
 
         // Jika semua validasi terpenuhi, tambahkan peserta baru.
         if (nameValidation && addressValidation && phoneNumberValidation) {
-            participant.add(new Participant(nameTrim, addressTrim, phoneNumberTrim, status));
+            participant.add(new Participant(inputTrim(name), inputTrim(address), phoneNumberTrim(phoneNumber), true));
         }
         return participant;
     }
@@ -99,25 +94,20 @@ public class ParticipantService {
     }
 
     // Menghilangkan spasi ekstra dari nama.
-    private String nameTrim(String name) {
-        return name.replaceAll("^\\s+|\\s+$", "").replaceAll("\\s+", " ");
-    }
-
-    // Menghilangkan spasi ekstra dari alamat.
-    private String addressTrim(String address) {
-        return address.replaceAll("^\\s+|\\s+$", "").replaceAll("\\s+", " ");
+    private String inputTrim(String input) {
+        return input.trim().replaceAll("\\s+", " ");
     }
 
     // Menghilangkan spasi ekstra dari nomor telepon.
     private String phoneNumberTrim(String phoneNumber) {
-        return phoneNumber.replaceAll("^\\s+|\\s+$", "");
+        return phoneNumber.trim();
     }
 
     // Inisialisasi data awal peserta jika belum ada.
     private void seedParticipant() {
         if (getParticipantData().size() == 0) {
-            getParticipantData().add(new Participant("Tharissa Najwa", "Bandung", "+6282126867931", "active"));
-            getParticipantData().add(new Participant("Putri Budiman", "Cimahi", "+6285321868782", "active"));
+            getParticipantData().add(new Participant("Tharissa Najwa", "Bandung", "+6282126867931", true));
+            getParticipantData().add(new Participant("Putri Budiman", "Cimahi", "+6285321868782", true));
         }
     }
 
@@ -153,21 +143,17 @@ public class ParticipantService {
     // Memperbarui informasi peserta.
     public List<Participant> updateParticipant(String newName, String oldName, String newAddress, String newPhoneNumber) {
         List<Participant> result = new ArrayList<>();
-        String newNameTrim = nameTrim(newName);
-        String oldNameTrim = nameTrim(oldName);
-        String newAddressTrim = addressTrim(newAddress);
-        String newPhoneNumberTrim = phoneNumberTrim(newPhoneNumber);
 
-        boolean newNameValidation = nameUpdateValidation(newNameTrim);
-        boolean newAddressValidation = addressValidation(newAddressTrim);
-        boolean newPhoneNumberValidation = phoneNumberValidation(newPhoneNumberTrim);
+        boolean newNameValidation = nameUpdateValidation(inputTrim(newName));
+        boolean newAddressValidation = addressValidation(inputTrim(newAddress));
+        boolean newPhoneNumberValidation = phoneNumberValidation(phoneNumberTrim(newPhoneNumber));
 
         for (Participant participant: getAllParticipant()) {
-            if (participant.getName().equalsIgnoreCase(oldNameTrim)) {
+            if (participant.getName().equalsIgnoreCase(inputTrim(oldName))) {
                 if (!newNameValidation && newAddressValidation && newPhoneNumberValidation) {
-                    participant.setName(newNameTrim);
-                    participant.setAddress(newAddressTrim);
-                    participant.setPhoneNumber(newPhoneNumberTrim);
+                    participant.setName(inputTrim(newName));
+                    participant.setAddress(inputTrim(newAddress));
+                    participant.setPhoneNumber(phoneNumberTrim(newPhoneNumber));
                     result.add(participant);
                     break;
                 }

@@ -5,11 +5,11 @@ public class Participant {
     private String name;          // Nama peserta
     private String address;       // Alamat peserta
     private String phoneNumber;   // Nomor telepon peserta
-    private String status;        // Status peserta, misalnya "active" atau "not active"
+    private boolean status;        // Status peserta, misalnya "active" atau "not active"
     private boolean isDeleted = false; // Status penghapusan peserta
 
     // Konstruktor untuk membuat objek Participant.
-    public Participant(String name, String address, String phoneNumber, String status) {
+    public Participant(String name, String address, String phoneNumber, boolean status) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -47,12 +47,12 @@ public class Participant {
     }
 
     // Getter untuk mendapatkan status peserta.
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
     // Setter untuk mengubah status peserta.
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
